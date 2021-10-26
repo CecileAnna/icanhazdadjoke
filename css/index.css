@@ -14,7 +14,7 @@ main {
   padding: 2rem;
 }
 main article {
-  height: 50vh;
+  height: 60vh;
 }
 main button {
   align-items: flex-end;
@@ -23,7 +23,7 @@ main button {
 
 .jokeText {
   color: teal;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: bolder;
   font-family: Helvetica, sans-serif;
   text-align: center;
@@ -44,4 +44,5 @@ main button {
   letter-spacing: 0.02rem;
   color: white;
   text-shadow: rgba(5, 44, 44, 0.966) 0.05rem 0.08rem 0.09rem;
+  border-radius: 10px;
 }
