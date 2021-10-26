@@ -4,10 +4,11 @@ fetch('https://icanhazdadjoke.com/', {
         }
     })
     .then(response => {
+
         return response.json()
-            .then(jokeData => {
-                console.log(jokeData);
-                const jokearea = document.querySelector("#jokearea");
-                jokearea.textContent = jokeData.joke;
-            })
+
+    }).then(jokeData => {
+        // console.log(jokeData);
+        const jokearea = document.querySelector("#jokearea");
+        jokearea.textContent = jokeData.joke;
     });
