@@ -1,25 +1,49 @@
+const { default: axios } = require("axios").default;
+
 document.querySelector('#d-btn').addEventListener('click', function() {
-    const myFetch = async() => {
+    const myAxios = async() => {
+        try {
+            let response = await axios.get('https://icanhazdadjoke.com/', {
+                headers: {
+                    Accept: "application/json",
+                }
+            });
 
-        let response = await fetch('https://icanhazdadjoke.com/', {
-            headers: {
-                Accept: "application/json",
-            }
-        });
+            let data = response.data;
 
-        if (!response.ok) {
-            throw new Error("Joke didn't land...")
-        };
+            return data;
 
-        let data = await response.json();
+        } catch (error) {
 
-        return data;
+
+            if (error.response) {
+                throw new Error("Joke didn't land...")
+            };
+
+        }
 
     };
 
-    myFetch().then(data => {
-        const jokeArea = document.querySelector("#jokearea");
-        jokeArea.textContent = data.joke;
+    function printJokeList(joke) {
+        let ul = document.querySelector("#ul");
+        // let li = document.queryselector(".li");
+        // li.appendChild(document.textContent = joke);
+        // ul.appendChild(li);
+
+        do {
+
+            let li = document.createElement('li');
+
+            ul.appendChild(li);
+            li.appendChild(document.textContent = joke);
+
+        } while (joke);
+    }
+
+    myAxios().then(data => {
+        // const jokeArea = document.querySelector(".jokearea");
+        // jokeArea.textContent = data.joke;
+        printJokeList(data);
     });
 
 });
